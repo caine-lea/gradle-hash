@@ -1,0 +1,47 @@
+apply from: file("${rootDir}/gradle/project.gradle")
+
+subprojects {
+    apply from: file("${rootDir}/gradle/check.gradle")
+
+    group = 'app.ecommerce'
+    version = '1.0.0'
+
+    repositories {
+        maven {     // for old core
+            url "http://s3.amazonaws.com/neo-repo/"
+        }
+        maven {     // for core-ng after 4.7.8
+            url 'https://neowu.github.io/maven-repo/'
+        }
+    }
+}
+
+def coreNGVersion = '4.8.7'
+def awsVersion = '1.11.65'
+def mysqlVersion = '5.1.40'
+def rabbitVersion = '3.6.5'
+def kafkaVersion = '0.10.1.0'
+def elasticVersion = '5.0.2'
+def redisVersion = '2.9.0'
+def mongoVersion = '3.3.0'
+
+configure([project(':gradle-v3.2')]) {
+    apply from: file("${rootDir}/gradle/app.gradle")
+    dependencies {
+        compile(
+        )
+        testCompile(
+                'junit:junit:4.12',
+        )
+    }
+}
+
+project(':gradle-v3.2') {
+    apply from: file("${rootDir}/gradle/lib.gradle")
+    dependencies {
+        provided(
+        )
+        compile(
+        )
+    }
+}

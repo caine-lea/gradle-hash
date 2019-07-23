@@ -1,0 +1,12 @@
+/.gradle
+/.idea
+classes/
+/.settings
+/build
+/.classpath
+/.project
+*.iml
+*/src/dev/java/
+*/src/main/dev/
+*/catalina.base_IS_UNDEFINED
+node_modules/
